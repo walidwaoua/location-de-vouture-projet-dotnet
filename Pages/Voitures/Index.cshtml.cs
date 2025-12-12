@@ -3,15 +3,18 @@ using LocationVoiture.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-public class VoituresIndexModel : PageModel
+namespace LocationVoiture.Pages.Voitures
 {
-    private readonly ApplicationDbContext _db;
-    public VoituresIndexModel(ApplicationDbContext db) => _db = db;
-
-    public IList<Voiture> Voitures { get; set; } = new List<Voiture>();
-
-    public async Task OnGetAsync()
+    public class VoituresIndexModel : PageModel
     {
-        Voitures = await _db.Voitures.AsNoTracking().OrderBy(v => v.Marque).ToListAsync();
+        private readonly ApplicationDbContext _db;
+        public VoituresIndexModel(ApplicationDbContext db) => _db = db;
+
+        public IList<Voiture> Voitures { get; set; } = new List<Voiture>();
+
+        public async Task OnGetAsync()
+        {
+            Voitures = await _db.Voitures.AsNoTracking().OrderBy(v => v.Marque).ToListAsync();
+        }
     }
 }

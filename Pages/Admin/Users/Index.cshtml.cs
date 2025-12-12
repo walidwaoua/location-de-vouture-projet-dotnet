@@ -3,15 +3,18 @@ using LocationVoiture.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-public class AdminUsersIndexModel : PageModel
+namespace LocationVoiture.Pages.Admin.Users
 {
-    private readonly ApplicationDbContext _db;
-    public AdminUsersIndexModel(ApplicationDbContext db) => _db = db;
-
-    public IList<Client> Items { get; set; } = new List<Client>();
-
-    public async Task OnGetAsync()
+    public class AdminUsersIndexModel : PageModel
     {
-        Items = await _db.Clients.Include(c => c.Compte).AsNoTracking().ToListAsync();
+        private readonly ApplicationDbContext _db;
+        public AdminUsersIndexModel(ApplicationDbContext db) => _db = db;
+
+        public IList<Client> Items { get; set; } = new List<Client>();
+
+        public async Task OnGetAsync()
+        {
+            Items = await _db.Clients.Include(c => c.Compte).AsNoTracking().ToListAsync();
+        }
     }
 }

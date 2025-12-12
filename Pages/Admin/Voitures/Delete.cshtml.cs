@@ -3,28 +3,31 @@ using LocationVoiture.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-public class AdminVoitureDeleteModel : PageModel
+namespace LocationVoiture.Pages.Admin.Voitures
 {
-    private readonly ApplicationDbContext _db;
-    public AdminVoitureDeleteModel(ApplicationDbContext db) => _db = db;
-
-    [BindProperty]
-    public Voiture Voiture { get; set; } = new();
-
-    public async Task<IActionResult> OnGetAsync(int id)
+    public class AdminVoitureDeleteModel : PageModel
     {
-        var entity = await _db.Voitures.FindAsync(id);
-        if (entity == null) return NotFound();
-        Voiture = entity;
-        return Page();
-    }
+        private readonly ApplicationDbContext _db;
+        public AdminVoitureDeleteModel(ApplicationDbContext db) => _db = db;
 
-    public async Task<IActionResult> OnPostAsync()
-    {
-        var entity = await _db.Voitures.FindAsync(Voiture.Id);
-        if (entity == null) return NotFound();
-        _db.Voitures.Remove(entity);
-        await _db.SaveChangesAsync();
-        return RedirectToPage("Index");
+        [BindProperty]
+        public Voiture Voiture { get; set; } = new();
+
+        public async Task<IActionResult> OnGetAsync(int id)
+        {
+            var entity = await _db.Voitures.FindAsync(id);
+            if (entity == null) return NotFound();
+            Voiture = entity;
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            var entity = await _db.Voitures.FindAsync(Voiture.Id);
+            if (entity == null) return NotFound();
+            _db.Voitures.Remove(entity);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
     }
 }

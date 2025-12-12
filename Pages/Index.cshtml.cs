@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-public class IndexModel : PageModel
+namespace LocationVoiture.Pages
 {
-    public void OnGet() { }
+    public class IndexModel : PageModel
+    {
+        public void OnGet() { }
+    }
 }
