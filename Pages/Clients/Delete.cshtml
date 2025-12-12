@@ -1,0 +1,13 @@
+@page "{id:int}"
+@model ClientDeleteModel
+@{
+    ViewData["Title"] = "Supprimer le client";
+}
+<h1>Supprimer le client</h1>
+<div class="alert alert-warning">Êtes-vous sûr de vouloir supprimer ce client ?</div>
+<form method="post">
+    <input type="hidden" asp-for="Client.Id" />
+    <p><strong>@Model.Client.Nom @Model.Client.Prenom</strong></p>
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>

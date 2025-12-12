@@ -1,0 +1,29 @@
+@page
+@using LocationVoiture.Models
+@model VoituresIndexModel
+@{
+    ViewData["Title"] = "Parc automobile";
+}
+<h1>Voitures disponibles</h1>
+<div class="row">
+@foreach (var v in Model.Voitures)
+{
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="@v.ImageUrl" alt="@v.Marque @v.Modele" />
+            <div class="card-body">
+                <h5 class="card-title">@v.Marque @v.Modele</h5>
+                <p class="card-text">@v.Description</p>
+                <p class="card-text"><strong>@v.PrixParJour.ToString("C")/jour</strong></p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <span class="badge @(v.Disponible ? "bg-success" : "bg-secondary")">@(v.Disponible ? "Disponible" : "Indisponible")</span>
+                @if (v.Disponible)
+                {
+                    <a class="btn btn-primary" asp-page="/Reservations/Create" asp-route-voitureId="@v.Id">Louer</a>
+                }
+            </div>
+        </div>
+    </div>
+}
+</div>

@@ -1,0 +1,26 @@
+@page "{id:int}"
+@model ClientDetailsModel
+@{
+    ViewData["Title"] = "Détails du client";
+}
+<h1>Détails du client</h1>
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Nom</dt>
+            <dd class="col-sm-9">@Model.Client.Nom</dd>
+            <dt class="col-sm-3">Prénom</dt>
+            <dd class="col-sm-9">@Model.Client.Prenom</dd>
+            <dt class="col-sm-3">Adresse</dt>
+            <dd class="col-sm-9">@Model.Client.Adresse</dd>
+            <dt class="col-sm-3">Age</dt>
+            <dd class="col-sm-9">@Model.Client.Age</dd>
+            <dt class="col-sm-3">Permis</dt>
+            <dd class="col-sm-9">@Model.Client.NumeroPermis</dd>
+            <dt class="col-sm-3">CIN</dt>
+            <dd class="col-sm-9">@Model.Client.CIN</dd>
+        </dl>
+        <a asp-page="Edit" asp-route-id="@Model.Client.Id" class="btn btn-primary">Modifier</a>
+        <a asp-page="Index" class="btn btn-secondary">Retour</a>
+    </div>
+</div>

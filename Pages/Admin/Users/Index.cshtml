@@ -1,0 +1,23 @@
+@page
+@model AdminUsersIndexModel
+@{
+    ViewData["Title"] = "Utilisateurs";
+}
+<h1>Utilisateurs</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom d'utilisateur</th>
+        <th>Client</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var u in Model.Items)
+    {
+        <tr>
+            <td>@u.Compte.NomUtilisateur</td>
+            <td>@(u.Nom) @(u.Prenom)</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# Build outputs
+bin/
+obj/
+[Bb]uild/
+
+# NuGet
+*.nupkg
+packages/
+
+# Logs
+*.log
+
+# Node/Libs (if any)
+node_modules/
+lib/
+
+# Static web assets cache
+**/wwwroot/lib/
+
+# Resharper/Rider
+_ReSharper.Caches/
+.idea/
+
+# Coverage
+coverage/
+
+# EF Migrations bundles
+migrations-sql/
+
+# OS files
+.DS_Store
+Thumbs.db

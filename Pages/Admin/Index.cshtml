@@ -1,0 +1,11 @@
+@page
+@model AdminIndexModel
+@{
+    ViewData["Title"] = "Admin";
+}
+<h1>Portail Admin</h1>
+<div class="list-group">
+    <a class="list-group-item list-group-item-action" asp-page="/Admin/Voitures/Index">Gérer les voitures</a>
+    <a class="list-group-item list-group-item-action" asp-page="/Admin/Reservations/Index">Voir et valider les réservations</a>
+    <a class="list-group-item list-group-item-action" asp-page="/Admin/Users/Index">Voir les utilisateurs</a>
+</div>

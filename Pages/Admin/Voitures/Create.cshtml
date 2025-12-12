@@ -1,0 +1,44 @@
+@page
+@model AdminVoitureCreateModel
+@{
+    ViewData["Title"] = "Ajouter une voiture";
+}
+<h1>Ajouter une voiture</h1>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Voiture.Marque" class="form-label"></label>
+        <input asp-for="Voiture.Marque" class="form-control" />
+        <span asp-validation-for="Voiture.Marque" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Voiture.Modele" class="form-label"></label>
+        <input asp-for="Voiture.Modele" class="form-control" />
+        <span asp-validation-for="Voiture.Modele" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Voiture.Matricule" class="form-label"></label>
+        <input asp-for="Voiture.Matricule" class="form-control" />
+        <span asp-validation-for="Voiture.Matricule" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Voiture.PrixParJour" class="form-label"></label>
+        <input asp-for="Voiture.PrixParJour" class="form-control" />
+        <span asp-validation-for="Voiture.PrixParJour" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Voiture.Description" class="form-label"></label>
+        <textarea asp-for="Voiture.Description" class="form-control"></textarea>
+        <span asp-validation-for="Voiture.Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Voiture.ImageUrl" class="form-label"></label>
+        <input asp-for="Voiture.ImageUrl" class="form-control" />
+        <span asp-validation-for="Voiture.ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="Voiture.Disponible" class="form-check-input" />
+        <label asp-for="Voiture.Disponible" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>

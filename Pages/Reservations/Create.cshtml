@@ -1,0 +1,36 @@
+@page
+@model ReservationCreateModel
+@{
+    ViewData["Title"] = "Louer une voiture";
+}
+<h1>Louer une voiture</h1>
+<form method="post">
+    <input type="hidden" asp-for="Reservation.VoitureId" />
+    <div class="mb-3">
+        <label asp-for="Reservation.NomReservateur" class="form-label"></label>
+        <input asp-for="Reservation.NomReservateur" class="form-control" />
+        <span asp-validation-for="Reservation.NomReservateur" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Reservation.PrenomReservateur" class="form-label"></label>
+        <input asp-for="Reservation.PrenomReservateur" class="form-control" />
+        <span asp-validation-for="Reservation.PrenomReservateur" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Reservation.Adresse" class="form-label"></label>
+        <input asp-for="Reservation.Adresse" class="form-control" />
+        <span asp-validation-for="Reservation.Adresse" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Reservation.Telephone" class="form-label"></label>
+        <input asp-for="Reservation.Telephone" class="form-control" />
+        <span asp-validation-for="Reservation.Telephone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Reservation.NumeroPermis" class="form-label"></label>
+        <input asp-for="Reservation.NumeroPermis" class="form-control" />
+        <span asp-validation-for="Reservation.NumeroPermis" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Réserver</button>
+    <a asp-page="/Voitures/Index" class="btn btn-secondary">Annuler</a>
+</form>

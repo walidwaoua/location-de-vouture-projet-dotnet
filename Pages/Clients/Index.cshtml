@@ -1,0 +1,42 @@
+@page
+@using LocationVoiture.Data
+@using LocationVoiture.Models
+@model ClientsIndexModel
+@{
+    ViewData["Title"] = "Clients";
+}
+<h1>Liste des clients</h1>
+<p>
+    <a class="btn btn-primary" asp-page="Create">Ajouter un client</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Adresse</th>
+            <th>Age</th>
+            <th>Permis</th>
+            <th>CIN</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var c in Model.Clients)
+    {
+        <tr>
+            <td>@c.Nom</td>
+            <td>@c.Prenom</td>
+            <td>@c.Adresse</td>
+            <td>@c.Age</td>
+            <td>@c.NumeroPermis</td>
+            <td>@c.CIN</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@c.Id">Modifier</a> |
+                <a asp-page="Details" asp-route-id="@c.Id">Détails</a> |
+                <a asp-page="Delete" asp-route-id="@c.Id">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

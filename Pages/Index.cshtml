@@ -1,0 +1,45 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Accueil";
+}
+<section class="bg-light border rounded-3 my-4">
+    <div class="container py-5 text-center">
+        <h1 class="display-4 fw-bold mb-3">Location de voitures simple et rapide</h1>
+        <p class="fs-5 text-muted mb-4">Choisissez votre véhicule, réservez en ligne et créez votre compte pour suivre vos réservations.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-primary btn-lg" asp-page="/Voitures/Index">Parc des voitures</a>
+            <a class="btn btn-outline-primary btn-lg" asp-page="/Reservations/Create">Faire une réservation</a>
+            <a class="btn btn-outline-secondary btn-lg" asp-page="/Account/Register">Créer mon compte</a>
+        </div>
+    </div>
+}</section>
+
+<section class="container my-5">
+    <div class="row g-4">
+        <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Un large choix</h5>
+                    <p class="card-text">Citadine, berline ou SUV: trouvez le modèle idéal pour vos trajets.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Processus simplifié</h5>
+                    <p class="card-text">Réservation en ligne avec numéro de réservation généré instantanément.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Espace personnel</h5>
+                    <p class="card-text">Créez votre compte pour gérer vos informations et suivre vos réservations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}</section>

@@ -1,0 +1,31 @@
+@page
+@model AdminReservationsIndexModel
+@{
+    ViewData["Title"] = "Réservations";
+}
+<h1>Réservations</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Numéro</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Téléphone</th>
+        <th>Date</th>
+        <th>Voiture</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model.Items)
+    {
+        <tr>
+            <td>@r.NumeroReservation</td>
+            <td>@r.NomReservateur</td>
+            <td>@r.PrenomReservateur</td>
+            <td>@r.Telephone</td>
+            <td>@r.DateReservation.ToLocalTime().ToString("g")</td>
+            <td>@(r.Voiture != null ? $"{r.Voiture.Marque} {r.Voiture.Modele}" : "-")</td>
+        </tr>
+    }
+    </tbody>
+</table>

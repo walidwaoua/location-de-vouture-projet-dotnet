@@ -1,0 +1,37 @@
+@page
+@model AdminVoituresIndexModel
+@{
+    ViewData["Title"] = "Gestion des voitures";
+}
+<h1>Gestion des voitures</h1>
+<p>
+    <a class="btn btn-primary" asp-page="Create">Ajouter une voiture</a>
+</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Marque</th>
+        <th>Modèle</th>
+        <th>Matricule</th>
+        <th>Prix/jour</th>
+        <th>Disponibilité</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var v in Model.Voitures)
+    {
+        <tr>
+            <td>@v.Marque</td>
+            <td>@v.Modele</td>
+            <td>@v.Matricule</td>
+            <td>@v.PrixParJour.ToString("C")</td>
+            <td>@(v.Disponible ? "Oui" : "Non")</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@v.Id">Modifier</a> |
+                <a asp-page="Delete" asp-route-id="@v.Id">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

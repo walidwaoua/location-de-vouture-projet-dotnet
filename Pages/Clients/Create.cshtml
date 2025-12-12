@@ -1,0 +1,40 @@
+@page
+@model ClientCreateModel
+@{
+    ViewData["Title"] = "Ajouter un client";
+}
+<h1>Ajouter un client</h1>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Client.Nom" class="form-label"></label>
+        <input asp-for="Client.Nom" class="form-control" />
+        <span asp-validation-for="Client.Nom" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Client.Prenom" class="form-label"></label>
+        <input asp-for="Client.Prenom" class="form-control" />
+        <span asp-validation-for="Client.Prenom" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Client.Adresse" class="form-label"></label>
+        <input asp-for="Client.Adresse" class="form-control" />
+        <span asp-validation-for="Client.Adresse" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Client.Age" class="form-label"></label>
+        <input asp-for="Client.Age" class="form-control" />
+        <span asp-validation-for="Client.Age" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Client.NumeroPermis" class="form-label"></label>
+        <input asp-for="Client.NumeroPermis" class="form-control" />
+        <span asp-validation-for="Client.NumeroPermis" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Client.CIN" class="form-label"></label>
+        <input asp-for="Client.CIN" class="form-control" />
+        <span asp-validation-for="Client.CIN" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>
