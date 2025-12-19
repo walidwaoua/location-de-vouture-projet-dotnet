@@ -16,7 +16,7 @@
     @foreach (var u in Model.Items)
     {
         <tr>
-            <td>@u.Compte.NomUtilisateur</td>
+            <td>@(u.Compte?.NomUtilisateur ?? "-")</td>
             <td>@(u.Nom) @(u.Prenom)</td>
         </tr>
     }

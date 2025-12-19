@@ -29,6 +29,11 @@ namespace LocationVoiture.Data
                 .HasIndex(v => v.Matricule)
                 .IsUnique();
 
+            // Precision for decimal column to avoid truncation warnings
+            modelBuilder.Entity<Voiture>()
+                .Property(v => v.PrixParJour)
+                .HasPrecision(18, 2);
+
             modelBuilder.Entity<Reservation>()
                 .HasIndex(r => r.NumeroReservation)
                 .IsUnique();
