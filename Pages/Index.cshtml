@@ -1,45 +1,96 @@
 @page
-@model IndexModel
+@model LocationVoiture.Pages.IndexModel
 @{
     ViewData["Title"] = "Accueil";
 }
-<section class="bg-light border rounded-3 my-4">
-    <div class="container py-5 text-center">
-        <h1 class="display-4 fw-bold mb-3">Location de voitures simple et rapide</h1>
-        <p class="fs-5 text-muted mb-4">Choisissez votre véhicule, réservez en ligne et créez votre compte pour suivre vos réservations.</p>
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-            <a class="btn btn-primary btn-lg" asp-page="/Voitures/Index">Parc des voitures</a>
-            <a class="btn btn-outline-primary btn-lg" asp-page="/Reservations/Create">Faire une réservation</a>
-            <a class="btn btn-outline-secondary btn-lg" asp-page="/Account/Register">Créer mon compte</a>
-        </div>
-    </div>
-</section>
 
-<section class="container my-5">
-    <div class="row g-4">
-        <div class="col-12 col-md-4">
-            <div class="card h-100 shadow-sm">
+<div class="hero-section text-center py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Bienvenue chez LocationVoiture</h1>
+        <p class="lead mb-4">Louez la voiture de vos rêves en quelques clics</p>
+        <a asp-page="/Voitures/Index" class="btn btn-primary btn-lg me-2">Voir nos voitures</a>
+        <a asp-page="/Account/Register" class="btn btn-outline-primary btn-lg">Créer un compte</a>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Un large choix</h5>
-                    <p class="card-text">Citadine, berline ou SUV: trouvez le modèle idéal pour vos trajets.</p>
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-car-front text-primary" viewBox="0 0 16 16">
+                            <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276Z" />
+                            <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z" />
+                        </svg>
+                    </div>
+                    <h5 class="card-title">Large Sélection</h5>
+                    <p class="card-text">Des centaines de véhicules disponibles pour tous vos besoins</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4">
-            <div class="card h-100 shadow-sm">
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Processus simplifié</h5>
-                    <p class="card-text">Réservation en ligne avec numéro de réservation généré instantanément.</p>
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-shield-check text-success" viewBox="0 0 16 16">
+                            <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+                            <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </div>
+                    <h5 class="card-title">Sécurisé</h5>
+                    <p class="card-text">Tous nos véhicules sont assurés et régulièrement entretenus</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4">
-            <div class="card h-100 shadow-sm">
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Espace personnel</h5>
-                    <p class="card-text">Créez votre compte pour gérer vos informations et suivre vos réservations.</p>
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-clock-history text-info" viewBox="0 0 16 16">
+                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+                        </svg>
+                    </div>
+                    <h5 class="card-title">Disponibilité 24/7</h5>
+                    <p class="card-text">Réservez à tout moment, récupérez votre voiture quand vous voulez</p>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Comment ça marche ?</h2>
+    <div class="row">
+        <div class="col-md-3 text-center mb-4">
+            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="fs-4 fw-bold">1</span>
+            </div>
+            <h5>Choisissez</h5>
+            <p class="text-muted">Sélectionnez votre voiture parmi notre catalogue</p>
+        </div>
+        <div class="col-md-3 text-center mb-4">
+            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="fs-4 fw-bold">2</span>
+            </div>
+            <h5>Réservez</h5>
+            <p class="text-muted">Remplissez le formulaire de réservation</p>
+        </div>
+        <div class="col-md-3 text-center mb-4">
+            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="fs-4 fw-bold">3</span>
+            </div>
+            <h5>Confirmez</h5>
+            <p class="text-muted">Recevez votre confirmation instantanée</p>
+        </div>
+        <div class="col-md-3 text-center mb-4">
+            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="fs-4 fw-bold">4</span>
+            </div>
+            <h5>Profitez</h5>
+            <p class="text-muted">Récupérez votre voiture et prenez la route !</p>
+        </div>
+    </div>
+</div>
