@@ -5,6 +5,10 @@
 @{
     ViewData["Title"] = "Parc automobile";
 }
+@if (TempData["SuccessMessage"] is string msg)
+{
+    <div class="alert alert-success">@msg</div>
+}
 <h1>Voitures disponibles</h1>
 <div class="row">
 @foreach (var v in Model.Voitures)

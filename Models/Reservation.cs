@@ -23,7 +23,8 @@ namespace LocationVoiture.Models
         [Required, MaxLength(50)]
         public string NumeroPermis { get; set; } = string.Empty;
 
-        [Required, Phone]
+        [Required]
+        [MaxLength(30)]
         public string Telephone { get; set; } = string.Empty;
 
         [Required]

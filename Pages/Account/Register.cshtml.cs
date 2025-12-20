@@ -1,8 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using LocationVoiture.Data;
 using LocationVoiture.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -47,6 +50,16 @@ namespace LocationVoiture.Pages.Account
             };
             _db.Comptes.Add(compte);
             await _db.SaveChangesAsync();
+
+            var claims = new List<Claim>
+            {
+                new(ClaimTypes.Name, NomUtilisateur),
+                new(ClaimTypes.NameIdentifier, compte.Id.ToString()),
+                new(ClaimTypes.Role, "User"),
+                new("ClientId", Client.Id.ToString())
+            };
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
             return RedirectToPage("/Index");
         }

@@ -21,7 +21,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="card-subtitle mb-2">Voitures</h6>
-                            <h2 class="card-title mb-0">--</h2>
+                            <h2 class="card-title mb-0">@Model.VoituresCount</h2>
                         </div>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16">
@@ -47,7 +47,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="card-subtitle mb-2">Réservations</h6>
-                            <h2 class="card-title mb-0">--</h2>
+                            <h2 class="card-title mb-0">@Model.ReservationsCount</h2>
                         </div>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
@@ -74,7 +74,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="card-subtitle mb-2">Utilisateurs</h6>
-                            <h2 class="card-title mb-0">--</h2>
+                            <h2 class="card-title mb-0">@Model.ClientsCount</h2>
                         </div>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
@@ -148,8 +148,9 @@
                 </div>
                 <div class="card-body">
                     <p class="mb-2"><strong>Version :</strong> 1.0.0</p>
+                    <p class="mb-2"><strong>Comptes actifs :</strong> @Model.ComptesCount</p>
                     <p class="mb-2"><strong>Base de données :</strong> SQL Server</p>
-                    <p class="mb-0"><strong>Statut :</strong> <span class="badge bg-success">Opérationnel</span></p>
+                     <p class="mb-0"><strong>Statut :</strong> <span class="badge bg-success">Opérationnel</span></p>
                 </div>
             </div>
         </div>

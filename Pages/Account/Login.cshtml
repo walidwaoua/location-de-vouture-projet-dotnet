@@ -1,0 +1,24 @@
+@page
+@model LocationVoiture.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Se connecter";
+}
+<h1>Connexion</h1>
+<form method="post">
+    <input type="hidden" asp-for="ReturnUrl" />
+    <div class="mb-3">
+        <label asp-for="NomUtilisateur" class="form-label"></label>
+        <input asp-for="NomUtilisateur" class="form-control" />
+        <span asp-validation-for="NomUtilisateur" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="MotDePasse" class="form-label"></label>
+        <input asp-for="MotDePasse" type="password" class="form-control" />
+        <span asp-validation-for="MotDePasse" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+    <a asp-page="/Account/Register" class="btn btn-link">Créer un compte</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

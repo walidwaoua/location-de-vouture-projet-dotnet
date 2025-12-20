@@ -9,7 +9,10 @@
         <h1 class="display-4 fw-bold mb-4">Bienvenue chez LocationVoiture</h1>
         <p class="lead mb-4">Louez la voiture de vos rêves en quelques clics</p>
         <a asp-page="/Voitures/Index" class="btn btn-primary btn-lg me-2">Voir nos voitures</a>
-        <a asp-page="/Account/Register" class="btn btn-outline-primary btn-lg">Créer un compte</a>
+        @if (!(User?.Identity?.IsAuthenticated ?? false))
+        {
+            <a asp-page="/Account/Register" class="btn btn-outline-primary btn-lg">Créer un compte</a>
+        }
     </div>
 </div>
 
