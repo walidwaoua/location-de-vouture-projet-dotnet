@@ -4,11 +4,24 @@
 @{
     ViewData["Title"] = "Supprimer le client";
 }
-<h1>Supprimer le client</h1>
-<div class="alert alert-warning">Êtes-vous sûr de vouloir supprimer ce client ?</div>
-<form method="post">
-    <input type="hidden" asp-for="Client.Id" />
-    <p><strong>@Model.Client.Nom @Model.Client.Prenom</strong></p>
-    <button type="submit" class="btn btn-danger">Supprimer</button>
-    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
-</form>
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h1 class="h4 mb-3 text-center text-danger">Supprimer le client</h1>
+                    <div class="alert alert-warning">Êtes-vous sûr de vouloir supprimer ce client ?</div>
+                    <form method="post">
+                        <input type="hidden" asp-for="Client.Id" />
+                        <p class="fw-bold mb-4">@Model.Client.Nom @Model.Client.Prenom</p>
+                        <div class="d-flex gap-2 justify-content-end">
+                            <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,46 +4,100 @@
 @{
     ViewData["Title"] = "Louer une voiture";
 }
-@if (TempData["ErrorMessage"] is string err)
-{
-    <div class="alert alert-danger">@err</div>
-}
-@if (TempData["SuccessMessage"] is string ok)
-{
-    <div class="alert alert-success">@ok</div>
-}
-<h1>Louer une voiture</h1>
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<form method="post" asp-antiforgery="true">
-    <input type="hidden" asp-for="Reservation.VoitureId" />
-    <div class="mb-3">
-        <label asp-for="Reservation.NomReservateur" class="form-label"></label>
-        <input asp-for="Reservation.NomReservateur" class="form-control" />
-        <span asp-validation-for="Reservation.NomReservateur" class="text-danger"></span>
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+            @if (TempData["ErrorMessage"] is string err)
+            {
+                <div class="alert alert-danger">@err</div>
+            }
+            @if (TempData["SuccessMessage"] is string ok)
+            {
+                <div class="alert alert-success">@ok</div>
+            }
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h1 class="h3 mb-3 text-center">Louer une voiture</h1>
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <form method="post" asp-antiforgery="true" class="needs-validation" novalidate>
+                        <input type="hidden" asp-for="Reservation.VoitureId" />
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Reservation.NomReservateur" class="form-label"></label>
+                                <input asp-for="Reservation.NomReservateur" class="form-control" />
+                                <span asp-validation-for="Reservation.NomReservateur" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Reservation.PrenomReservateur" class="form-label"></label>
+                                <input asp-for="Reservation.PrenomReservateur" class="form-control" />
+                                <span asp-validation-for="Reservation.PrenomReservateur" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <label asp-for="Reservation.Adresse" class="form-label"></label>
+                                <input asp-for="Reservation.Adresse" class="form-control" />
+                                <span asp-validation-for="Reservation.Adresse" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Reservation.Telephone" class="form-label"></label>
+                                <input asp-for="Reservation.Telephone" class="form-control" />
+                                <span asp-validation-for="Reservation.Telephone" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Reservation.NumeroPermis" class="form-label"></label>
+                                <input asp-for="Reservation.NumeroPermis" class="form-control" />
+                                <span asp-validation-for="Reservation.NumeroPermis" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Reservation.DateDebut" class="form-label">Date début</label>
+                                <input asp-for="Reservation.DateDebut" type="date" class="form-control" />
+                                <span asp-validation-for="Reservation.DateDebut" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Reservation.DateFin" class="form-label">Date fin</label>
+                                <input asp-for="Reservation.DateFin" type="date" class="form-control" />
+                                <span asp-validation-for="Reservation.DateFin" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Prix total</label>
+                                <input asp-for="Reservation.PrixTotal" class="form-control" readonly />
+                                <input type="hidden" id="prixJour" value="@Model.PrixParJour" />
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <a asp-page="/Voitures/Index" class="btn btn-secondary">Annuler</a>
+                            <button type="submit" class="btn btn-primary px-4">Réserver</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label asp-for="Reservation.PrenomReservateur" class="form-label"></label>
-        <input asp-for="Reservation.PrenomReservateur" class="form-control" />
-        <span asp-validation-for="Reservation.PrenomReservateur" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Reservation.Adresse" class="form-label"></label>
-        <input asp-for="Reservation.Adresse" class="form-control" />
-        <span asp-validation-for="Reservation.Adresse" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Reservation.Telephone" class="form-label"></label>
-        <input asp-for="Reservation.Telephone" class="form-control" />
-        <span asp-validation-for="Reservation.Telephone" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Reservation.NumeroPermis" class="form-label"></label>
-        <input asp-for="Reservation.NumeroPermis" class="form-control" />
-        <span asp-validation-for="Reservation.NumeroPermis" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Réserver</button>
-    <a asp-page="/Voitures/Index" class="btn btn-secondary">Annuler</a>
-</form>
+</div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        (function() {
+            const prixJour = parseFloat(document.getElementById('prixJour')?.value || '0');
+            const debutInput = document.getElementById('Reservation_DateDebut');
+            const finInput = document.getElementById('Reservation_DateFin');
+            const totalInput = document.getElementById('Reservation_PrixTotal');
+
+            function calcTotal() {
+                if (!debutInput || !finInput || !totalInput) return;
+                const d1 = debutInput.value ? new Date(debutInput.value) : null;
+                const d2 = finInput.value ? new Date(finInput.value) : null;
+                if (!d1 || !d2) return;
+                const ms = d2 - d1;
+                let days = Math.ceil(ms / (1000 * 60 * 60 * 24));
+                if (days < 1) days = 1;
+                const total = (prixJour * days).toFixed(2);
+                totalInput.value = total;
+            }
+
+            debutInput?.addEventListener('change', calcTotal);
+            finInput?.addEventListener('change', calcTotal);
+            calcTotal();
+        })();
+    </script>
 }

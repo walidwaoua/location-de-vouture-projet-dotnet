@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace LocationVoiture.Models
 {
@@ -29,6 +30,17 @@ namespace LocationVoiture.Models
 
         [Required]
         public DateTime DateReservation { get; set; }
+
+        [Required]
+        public DateTime DateDebut { get; set; }
+
+        [Required]
+        public DateTime DateFin { get; set; }
+
+        [Required]
+        [Range(0, double.MaxValue)]
+        [Precision(18, 2)]
+        public decimal PrixTotal { get; set; }
 
         public int? ClientId { get; set; }
         public Client? Client { get; set; }
